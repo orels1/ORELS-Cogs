@@ -1,0 +1,6 @@
+{
+    "AUTHOR" : "orels1 - https://github.com/orels1",
+    "DESCRIPTION" : "Requires Pillow module to operate. run \npip3 install pillow\n to add it",
+    "DISABLED" : false,
+    "NAME" : "Draws fancy images and memes"
+}
