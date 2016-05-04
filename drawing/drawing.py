@@ -46,16 +46,21 @@ class Drawing:
         if ctx.invoked_subcommand is None:
             await self.bot.say("Type help drawing for info.")
 
-    @drawing.command(name = 'info')
+    @drawing.command()
     async def info(self):
         """Returns the current version and patchnotes"""
-
+        
         message = "Current cog version: **" + self.version + "**\n"
-        message += "Patchones:"
+        message += "Patchnotes:"
         message += self.patchnote
 
-        await self.bot.say(message)
+        #await self.bot.say(message)
 
+    @drawing.command()
+    async def ver(self):
+        """Returns the current version"""
+
+        await self.bot.say("Current cog version: **" + self.version + "**")
 
     @commands.command(pass_context = True)
     async def text(self, ctx, *, text):
