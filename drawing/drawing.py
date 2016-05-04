@@ -17,7 +17,7 @@ class Drawing:
 
     def __init__(self, bot):
         self.bot = bot
-        self.version = "1.1.2"
+        self.version = "1.1.3"
         self.update_type = "fix"
         self.patchnote = """
             **A lot of imporvements**
