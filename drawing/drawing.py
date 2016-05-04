@@ -95,7 +95,7 @@ class Drawing:
 
             result.save('data/drawing/temp.jpg','JPEG', quality=100)
 
-            await self.bot.send_file(ctx.message.channel, 'temp.jpg')
+            await self.bot.send_file(ctx.message.channel, 'data/drawing/temp.jpg')
 
             os.remove('data/drawing/temp.jpg')
 
@@ -106,7 +106,7 @@ class Drawing:
         if ctx.invoked_subcommand is None:
             await self.bot.say("Type help build for info.")
 
-    @build.command(name = 'meme', pass_context = True)
+    @build.command(pass_context = True)
     async def meme(self, ctx):
         """Meme builder."""
 
@@ -204,7 +204,7 @@ class Drawing:
         else:
             await self.bot.say("Error getting image")
 
-    @build.command(name = 'feature', pass_context = True)
+    @build.command(pass_context = True)
     async def feature(self, ctx):
         """Fancy features builder"""
 
@@ -305,7 +305,7 @@ class Drawing:
         else:
             await self.bot.say("Error getting image")
 
-    @build.command(name = 'screen', pass_context = True)
+    @build.command(pass_context = True)
     async def screen(self, ctx, game = None, cut_window = None):
         """Personalized image branding with widow borders as an option"""
 
@@ -384,7 +384,7 @@ class Drawing:
         else:
             await self.bot.say("Error getting image")
 
-    @commands.command(pass_context=True)
+    @commands.command(pass_context = True)
     async def userbar(self, ctx, background = None):
         """Generates a server-based userbar, you can provide a backround color as rgba (0-255,0-255,0-255,0-255)"""
 
