@@ -17,7 +17,8 @@ class Drawing:
 
     def __init__(self, bot):
         self.bot = bot
-        self.version = "1.1.1 (fix)"
+        self.version = "1.1.2"
+        self.update_type = "fix"
         self.patchnote = """
             **A lot of imporvements**
             Added new build command `screen`, which overlays your name on a screenshot
@@ -54,13 +55,15 @@ class Drawing:
         message += "Patchnotes:"
         message += self.patchnote
 
-        #await self.bot.say(message)
+        await self.bot.say(message)
 
     @drawing.command()
     async def ver(self):
         """Returns the current version"""
 
-        await self.bot.say("Current cog version: **" + self.version + "**")
+        message = "Current cog version: **" + self.version + "** (" + self.update_type + ")\n"
+        message += "For patchnotes use " + self.bot.command_prefix[0] + "drawing info"
+        await self.bot.say(message)
 
     @commands.command(pass_context = True)
     async def text(self, ctx, *, text):
