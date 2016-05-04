@@ -17,7 +17,7 @@ class Drawing:
 
     def __init__(self, bot):
         self.bot = bot
-        self.version = "1.1.0"
+        self.version = "1.1.1 (fix)"
         self.patchnote = """
             **A lot of imporvements**
             Added new build command `screen`, which overlays your name on a screenshot
@@ -182,12 +182,12 @@ class Drawing:
                 result = Image.alpha_composite(result, process)
 
                 # save and send
-                result.save('temp.jpg','JPEG', quality=100)
-                await self.bot.send_file(ctx.message.channel, 'temp.jpg')
+                result.save('data/drawing/temp.jpg','JPEG', quality=100)
+                await self.bot.send_file(ctx.message.channel, 'data/drawing/temp.jpg')
 
                 # cleanup
-                os.remove('temp.jpg')
-                os.remove('temp_bg.jpg')
+                os.remove('data/drawing/temp.jpg')
+                os.remove('data/drawing/temp_bg')
 
             else:
                 # pun intended
@@ -283,12 +283,12 @@ class Drawing:
                 result = Image.alpha_composite(result, process)
 
                 # save and send
-                result.save('temp.jpg','JPEG', quality=100)
-                await self.bot.send_file(ctx.message.channel, 'temp.jpg')
+                result.save('data/drawing/temp.jpg','JPEG', quality=100)
+                await self.bot.send_file(ctx.message.channel, 'data/drawing/temp.jpg')
 
                 # cleanup
-                os.remove('temp.jpg')
-                os.remove('temp_bg.jpg')
+                os.remove('data/drawing/temp.jpg')
+                os.remove('data/drawing/temp_bg')
 
             else:
                 # pun intended
