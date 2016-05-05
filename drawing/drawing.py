@@ -20,8 +20,8 @@ class Drawing:
     def __init__(self, bot):
         self.bot = bot
         self.drawing_settings = fileIO("data/drawing/settings.json", "load")
-        self.version = "1.2.0"
-        self.update_type = "update"
+        self.version = "1.2.1"
+        self.update_type = "fix"
         self.patchnote = """
             **Settings are here!**
             Added some stuff that will help you customize the cog: `[p]drawing setsign` and `[p]drawing setbg` commands
@@ -466,7 +466,7 @@ class Drawing:
 
     @commands.command(pass_context = True)
     async def userbar(self, ctx, background = None):
-        """Generates a server-based userbar, you can provide a backround color as rgba (0-255,0-255,0-255,0-255)"""
+        """Generates a server-based userbar, you can provide a backround color as a hex, e.g. '#ff00ff', or name, e.g. 'teal' or 'white'"""
 
         # get an avatar
         avatar_url = ctx.message.author.avatar_url
