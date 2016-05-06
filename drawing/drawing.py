@@ -21,8 +21,8 @@ class Drawing:
     def __init__(self, bot):
         self.bot = bot
         self.drawing_settings = fileIO("data/drawing/settings.json", "load")
-        self.version = "1.3.0"
-        self.update_type = "update"
+        self.version = "1.3.1"
+        self.update_type = "fix"
         self.patchnote = """
 **Youtube has come!**
 A lot of new stuff. First of all - fixed the typo in `[p]build screen`, thank you for reporting on that!
@@ -910,7 +910,8 @@ More to come!
             os.remove('temp.jpg')
 
     #TODO: add a twitch background generator
-    #TODO: add youtube cover generator
+    #TODO: make per-server settings for userbars
+    #TODO: refactor drawing functions, move similar code to shared functions
         
 def check_files():
     f = "data/drawing/settings.json"
@@ -921,7 +922,7 @@ def check_files():
                 "background": "data/drawing/bg.png",
                 "build" : {
                     "youtube" : {
-                        "small" : false,
+                        "small" : False,
                         "frame" : "white"
                     }
                 }
