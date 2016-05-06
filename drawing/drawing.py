@@ -21,7 +21,7 @@ class Drawing:
     def __init__(self, bot):
         self.bot = bot
         self.drawing_settings = fileIO("data/drawing/settings.json", "load")
-        self.version = "1.3.3"
+        self.version = "1.3.4"
         self.update_type = "fix"
         self.patchnote = """
 **Youtube has come!**
@@ -223,11 +223,11 @@ More to come!
             subtitle = ""
 
             # get vars
-            await self.bot.say("Please type firs line of txt")
+            await self.bot.say("Please type first line of text")
             answer = await self.bot.wait_for_message(timeout=30, author=ctx.message.author)
             title = answer.content.lower().strip()
 
-            await self.bot.say("Please type second line of texe")
+            await self.bot.say("Please type second line of text")
             answer = await self.bot.wait_for_message(timeout=30, author=ctx.message.author)
             subtitle = answer.content.lower().strip()
 
@@ -247,7 +247,7 @@ More to come!
                 half_width = int(math.floor(new_width / 2))
                 half_height = int(math.floor(new_height /2))
 
-                result = result.resize(size=(new_width, new_height))
+                result = result.resize(size=(new_width, new_height), resample=Image.LANCZOS)
                 print("Feature dimensions", new_width, "by", new_height)
 
                 process = Image.new('RGBA', (new_width,new_height), (0,0,0))
