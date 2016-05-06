@@ -21,7 +21,7 @@ class Drawing:
     def __init__(self, bot):
         self.bot = bot
         self.drawing_settings = fileIO("data/drawing/settings.json", "load")
-        self.version = "1.3.2"
+        self.version = "1.3.3"
         self.update_type = "fix"
         self.patchnote = """
 **Youtube has come!**
