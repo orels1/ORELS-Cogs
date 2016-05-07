@@ -67,7 +67,7 @@ class Drawing:
                 }
             fileIO("data/drawing/settings.json", "save", self.drawing_settings)
                 
-        self.version = "1.4.1"
+        self.version = "1.4.2"
         self.update_type = "fix"
         self.patchnote = """
 **Per-server settings are here!**
@@ -157,9 +157,11 @@ More to come!
                 try:
                     async with aiohttp.get(bg_url) as r:
                         image = await r.content.read()
-                    with open('data/drawing/custom_bg','wb') as f:
+                        if not os.path.exists("data/drawing/" + ctx.message.server.id):
+                            os.makedirs("data/drawing/" + ctx.message.server.id)
+                    with open('data/drawing/' + ctx.message.server.id + '/custom_bg','wb') as f:
                         f.write(image)
-                        bg_image = Image.open('data/drawing/custom_bg').convert('RGBA')
+                        bg_image = Image.open('data/drawing/' + ctx.message.server.id + '/custom_bg').convert('RGBA')
                         success = True
 
                 except Exception as e:
@@ -170,7 +172,7 @@ More to come!
 
                     # check dimensions
                     if bg_image.size == (400,100):
-                        self.drawing_settings["userbar"][ctx.message.server.id]["background"] = "data/drawing/custom_bg"
+                        self.drawing_settings["userbar"][ctx.message.server.id]["background"] = "data/drawing/" + ctx.message.server.id + "/custom_bg"
                         fileIO("data/drawing/settings.json", "save", self.drawing_settings)
                         await self.bot.say("I will now use this image as a background")
                     else:
