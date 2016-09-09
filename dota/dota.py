@@ -246,12 +246,12 @@ class Dota:
 			message += "```"
 			headers = ["Skill/Lvl"]
 			headers[len(headers):] = range(1,7)
-			message += tabulate(getPartialTable(build,0,7), headers=headers, tablefmt="fancy_grid")
+			message += tabulate(getPartialTable(build,1,7), headers=headers, tablefmt="fancy_grid")
 			message += "```\n"
 
 			message += "```"
 			headers = ["Skill/Lvl"]
-			headers[len(headers):] = range(7,14)
+			headers[len(headers):] = range(7,13)
 			message += tabulate(getPartialTable(build,7,13), headers=headers, tablefmt="fancy_grid")
 			message += "```\n"
 
@@ -260,7 +260,7 @@ class Dota:
 
 			message = "```"
 			headers = ["Skill/Lvl"]
-			headers[len(headers):] = range(14,21)
+			headers[len(headers):] = range(13,19)
 			message += tabulate(getPartialTable(build,13,19), headers=headers, tablefmt="fancy_grid")
 			message += "```\n"
 
