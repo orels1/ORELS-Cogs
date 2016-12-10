@@ -951,6 +951,7 @@ More to come!
     #TODO: add a twitch background generator
     #TODO: make per-server settings for userbars
     #TODO: refactor drawing functions, move similar code to shared functions
+    #TODO: welcome.py-like function for making userbars
         
 def check_files():
     f = "data/drawing/settings.json"
