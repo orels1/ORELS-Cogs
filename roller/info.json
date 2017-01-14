@@ -1,5 +1,5 @@
 {
-    "AUTHOR" : "orels - http://github.com/orels1",
+    "AUTHOR" : "orels1",
     "DESCRIPTION" : "An advanced dice-rolling cog. Rolls 4d20 by default. Check help for more",
     "DISABLED" : false,
     "NAME" : "An advanced dice-rolling cog"
