@@ -2,5 +2,6 @@
     "AUTHOR" : "orels",
     "DESCRIPTION" : "Repository of mainly gaming/data based cogs, with a bit of some fun stuff. Use as you like.",
     "DISABLED" : false,
-    "NAME" : "Gaming/Data-scrapping/Funny cogs by orels"
+    "NAME" : "ORELS-Cogs",
+    "SHORT": "Data scraping cogs with a bit of extra"
 }
