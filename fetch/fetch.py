@@ -9,7 +9,7 @@ class Fetch:
         self.bot = bot
 
     @commands.command()
-    async def fetch(self, stuff, user : discord.Member):
+    async def fetch(self, user: discord.Member *, stuff):
         """Fetches stuff to user"""
 
         await self.bot.say("Have your " + stuff + ", " + user.mention)
