@@ -3,5 +3,6 @@
     "DESCRIPTION" : "Repository of mainly gaming/data based cogs, with a bit of some fun stuff. Use as you like.",
     "DISABLED" : false,
     "NAME" : "ORELS-Cogs",
-    "SHORT": "Data scraping cogs with a bit of extra"
+    "SHORT": "Data scraping cogs with a bit of extra",
+    "TAGS": ["gaming", "api", "stats"]
 }
