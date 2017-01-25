@@ -2,5 +2,7 @@
     "AUTHOR" : "orels1",
     "DESCRIPTION" : "Made to make life of large gaming communities easier",
     "DISABLED" : false,
-    "NAME" : "Manages gaming profiles, lfg, etc"
+    "NAME": "Gaming",
+    "SHORT" : "Manages gaming profiles, lfg, etc",
+    "TAGS": ["gaming", "community", "tools"]
 }
