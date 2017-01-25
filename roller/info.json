@@ -2,5 +2,7 @@
     "AUTHOR" : "orels1",
     "DESCRIPTION" : "An advanced dice-rolling cog. Rolls 4d20 by default. Check help for more",
     "DISABLED" : false,
-    "NAME" : "An advanced dice-rolling cog"
+    "SHORT" : "An advanced dice-rolling cog",
+    "NAME": "Roller",
+    "TAGS": ["tools", "gaming"]
 }
