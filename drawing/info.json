@@ -3,6 +3,6 @@
     "DESCRIPTION" : "Requires Pillow module to operate. run \npip3 install pillow\n to add it.\nUse [p]drawing info for latest patchotes",
     "DISABLED" : false,
     "NAME" : "Drawing",
-    "REQIREMENTS": ["pillow"],
+    "REQUIREMENTS": ["pillow"],
     "TAGS": ["images", "fun", "community", "memes"]
 }
