@@ -62,7 +62,7 @@ class Apitools:
     @checks.is_owner()
     @apitools.command(pass_context=True, name='get')
     async def _get(self, ctx, url, w_headers=False):
-        """Shows estimated amount of owners for the game"""
+        """Performs a GET request to selected URL"""
 
         url = url.strip()
 
@@ -111,7 +111,7 @@ class Apitools:
     @checks.is_owner()
     @apitools.command(pass_context=True, name='post', aliases=['put'])
     async def _post(self, ctx, *, url):
-        """Shows estimated amount of owners for the game"""
+        """Performs POST or PUT request to selected URL"""
 
         await self.bot.say('Set headers by typing them in a `name=value` format, one on each line, or `pass`')
 
