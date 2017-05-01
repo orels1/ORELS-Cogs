@@ -4,5 +4,6 @@
     "DISABLED" : false,
     "NAME": "Gaming",
     "SHORT" : "Manages gaming profiles, lfg, etc",
-    "TAGS": ["gaming", "community", "tools"]
+    "TAGS": ["gaming", "community", "tools"],
+    "HIDDEN": true
 }
