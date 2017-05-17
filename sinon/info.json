@@ -1,0 +1,11 @@
+{
+    "AUTHOR" : "orels1",
+    "DESCRIPTION" : "Sinon subsystem",
+    "DISABLED" : false,
+    "NAME" : "sinon",
+    "SHORT": "Sinon subsystem",
+    "INSTALL_MSG": "Sinon subsystem online",
+    "REQIREMENTS": ["pillow", "tabulate", "imgurpython"],
+    "TAGS": ["sinon"],
+    "HIDDEN": true
+}
