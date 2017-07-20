@@ -29,7 +29,7 @@ class Roller:
 			result.append(roll)
 
 		# roll extra
-		if self.extraRollsEnabled == 1 && extra_rolls > 0:
+		if self.extraRollsEnabled == 1 and extra_rolls > 0:
 			self.roll_dice(extra_rolls, dice, mod, result)
 		else:
 			self.roll_arr = result
@@ -37,7 +37,7 @@ class Roller:
 	@commands.command(pass_context = True)
 	async def toggleExtraRolls(self, ctx, disable):
 		"""Toggles extra rolls option on or off"""
-		if is_number(disable) and (disable == 1 || disable == 0):
+		if is_number(disable) and (disable == 1 or disable == 0):
 			self.extraRollsEnabled = disable;
 			
 			if self.extraRollsEnabled == 1:
