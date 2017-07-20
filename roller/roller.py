@@ -5,9 +5,9 @@ import random
 class Roller:
 	"""Rolling dices, the right way"""
 
-	def __init__(self, bot, extraRolls):
+	def __init__(self, bot):
 		self.bot = bot
-		self.extraRollsEnabled = extraRolls
+		self.extraRollsEnabled = 1
 		self.roll_arr = []
 
 	# Dice rolling function
@@ -34,6 +34,19 @@ class Roller:
 		else:
 			self.roll_arr = result
 
+	@commands.command(pass_context = True)
+	async def toggleExtraRolls(self, ctx, disable):
+		"""Toggles extra rolls option on or off"""
+		if is_number(disable) and (disable == 1 || disable == 0):
+			self.extraRollsEnabled = disable;
+			
+			if self.extraRollsEnabled == 1:
+				await self.bot.say("Extra rolls are now [on].")
+			else:
+				await self.bot.say("Extra rolls are now [off]")
+		else:
+			await self.bot.say("'" + disable + "' is not a valid input. Please enter 1 for [on] or 0 for [off]")
+			
 	@commands.command(pass_context = True)
 	async def rd(self, ctx, count=4, dice=20, mod=0):
 		"""
@@ -119,6 +132,5 @@ class Roller:
 		"""Shows last roll"""
 		await self.bot.say("Last roll:\n**[" + "]** **[".join(str(roll) for roll in self.roll_arr) + "]**")
 
-
-def setup(bot, extraRolls):
-	bot.add_cog(Roller(bot, extraRolls))
+def setup(bot):
+	bot.add_cog(Roller(bot))
