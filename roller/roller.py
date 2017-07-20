@@ -5,8 +5,9 @@ import random
 class Roller:
 	"""Rolling dices, the right way"""
 
-	def __init__(self, bot):
+	def __init__(self, bot, extraRolls):
 		self.bot = bot
+		self.extraRollsEnabled = extraRolls
 		self.roll_arr = []
 
 	# Dice rolling function
@@ -28,7 +29,7 @@ class Roller:
 			result.append(roll)
 
 		# roll extra
-		if extra_rolls > 0:
+		if self.extraRollsEnabled == 1 && extra_rolls > 0:
 			self.roll_dice(extra_rolls, dice, mod, result)
 		else:
 			self.roll_arr = result
@@ -119,5 +120,5 @@ class Roller:
 		await self.bot.say("Last roll:\n**[" + "]** **[".join(str(roll) for roll in self.roll_arr) + "]**")
 
 
-def setup(bot):
-	bot.add_cog(Roller(bot))
+def setup(bot, extraRolls):
+	bot.add_cog(Roller(bot, extraRolls))
