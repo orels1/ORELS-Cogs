@@ -4,7 +4,6 @@ import aiohttp
 import re
 import logging
 
-
 log = logging.getLogger('red.steam')
 
 
@@ -12,6 +11,17 @@ class Steam:
     """Steam and SteamSpy related commands"""
     def __init__(self, bot):
         self.bot = bot
+        self.numbs = {
+            1: "1\U000020E3",
+            2: "2\U000020E3",
+            3: "3\U000020E3",
+            4: "4\U000020E3",
+            5: "5\U000020E3",
+            6: "6\U000020E3",
+            7: "7\U000020E3",
+            8: "8\U000020E3",
+            9: "9\U000020E3",
+        }
 
     @commands.command(pass_context=True, name='sales', aliases=['owners'])
     async def gamesales(self, ctx, *, game):
@@ -37,31 +47,45 @@ class Steam:
 
         # result refiner process
         async def refineResults(result):
-            result = result[0:5]
+            # strip all trailers
+            trailerR = re.compile('trailer|demo', re.I)
+            result = [g for g in result if trailerR.search(g['name']) is None][0:9]
 
-            message = "Found a lot of results, please choose one (type a number from the list): \n \n"
+            em = discord.Embed(title="Multiple results",
+            description="Please select one by clicking a number below the message",
+            colour=0x2F668D)
 
-            for game in enumerate(result):
-                message += str(game[0] + 1) + ". " + str(game[1]['name']) + "\n"
+            lines = []
+            for game in enumerate(result[0:9]):
+                lines.append("**#{}** - {}".format(game[0] + 1, game[1]['name']))
 
-            await self.bot.say(message)
+            em.add_field(name="Games found",
+            value='\n'.join(lines),
+            inline=False)
 
-            # number checker
-            def is_number(s):
-                try:
-                    int(s)
-                    return True
-                except ValueError:
-                    return False
+            emojis =[]
 
-            answer = await self.bot.wait_for_message(timeout=15, author=ctx.message.author)
+            message = await self.bot.send_message(ctx.message.channel, embed=em)
+            for line in enumerate(lines):
+                await self.bot.add_reaction(message, "{}\U000020E3".format(line[0] + 1))
+                emojis.append("{}\U000020E3".format(line[0]))
 
-            if answer:
-                if is_number(answer.content.strip()) and int(answer.content.strip()) in range(1, 6):
-                    return(result[int(answer.content.strip()) - 1]['appid'])
-                else:
-                    await self.bot.say("Please enter just a number next time :(")
-                    return None
+            react = await self.bot.wait_for_reaction(
+                message=message, user=ctx.message.author, timeout=15,
+                emoji=emojis
+            )
+            if react is None:
+                for line in enumerate(lines):
+                    await self.bot.remove_reaction(message, "{}\U000020E3".format(line[0] + 1), self.bot.user)
+                return None
+
+            reacts = {v: k for k, v in self.numbs.items()}
+            react = reacts[react.reaction.emoji]
+            if react:
+                await self.bot.delete_message(message)
+                return(result[int(react) - 1]['appid'])
+            else:
+                return None
 
         # get the appIds list first
         url = "http://api.steampowered.com/ISteamApps/GetAppList/v0002/"
@@ -122,7 +146,7 @@ class Steam:
                     # SteamSpy API
                     apiReturn = await gatherGameInfo(appId)
                     # if SteamSpy returned data
-                    if apiReturn is not None:
+                    if apiReturn is not None and appId is not None:
                         gameResult = apiReturn
 
             if gameResult is not None:
@@ -147,9 +171,9 @@ class Steam:
 
                 # send embed
                 await self.bot.send_message(ctx.message.channel, embed=em)
-            else:
-                # something went wrong
-                await self.bot.say('Something went wrong with SteamSpy')
+            # else:
+            #     # something went wrong
+            #     # await self.bot.say('Something went wrong with SteamSpy')
         else:
             await self.bot.say('Something went wrong with Steam')
 
