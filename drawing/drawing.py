@@ -219,11 +219,11 @@ More to come!
 
             result = Image.alpha_composite(result, process)
 
-            result.save('data/drawing/temp.jpg','JPEG', quality=100)
+            result.save('data/drawing/temp.png','PNG')
 
-            await self.bot.send_file(ctx.message.channel, 'data/drawing/temp.jpg')
+            await self.bot.send_file(ctx.message.channel, 'data/drawing/temp.png')
 
-            os.remove('data/drawing/temp.jpg')
+            os.remove('data/drawing/temp.png')
 
     @commands.group(pass_context = True)
     async def build(self, ctx):
@@ -316,11 +316,11 @@ More to come!
                 result = Image.alpha_composite(result, process)
 
                 # save and send
-                result.save('data/drawing/temp.jpg','JPEG', quality=100)
-                await self.bot.send_file(ctx.message.channel, 'data/drawing/temp.jpg')
+                result.save('data/drawing/temp.png','PNG')
+                await self.bot.send_file(ctx.message.channel, 'data/drawing/temp.png')
 
                 # cleanup
-                os.remove('data/drawing/temp.jpg')
+                os.remove('data/drawing/temp.png')
                 os.remove('data/drawing/temp_bg')
 
             else:
@@ -417,11 +417,11 @@ More to come!
                 result = Image.alpha_composite(result, process)
 
                 # save and send
-                result.save('data/drawing/temp.jpg','JPEG', quality=100)
-                await self.bot.send_file(ctx.message.channel, 'data/drawing/temp.jpg')
+                result.save('data/drawing/temp.png','PNG')
+                await self.bot.send_file(ctx.message.channel, 'data/drawing/temp.png')
 
                 # cleanup
-                os.remove('data/drawing/temp.jpg')
+                os.remove('data/drawing/temp.png')
                 os.remove('data/drawing/temp_bg')
 
             else:
@@ -500,11 +500,11 @@ More to come!
             result = Image.alpha_composite(result, process)
 
             # save and send
-            result.save('data/drawing/temp.jpg','JPEG', quality=100)
-            await self.bot.send_file(ctx.message.channel, 'data/drawing/temp.jpg')
+            result.save('data/drawing/temp.png','PNG')
+            await self.bot.send_file(ctx.message.channel, 'data/drawing/temp.png')
 
             # cleanup
-            os.remove('data/drawing/temp.jpg')
+            os.remove('data/drawing/temp.png')
             os.remove('data/drawing/temp_bg')
 
         else:
@@ -672,11 +672,11 @@ More to come!
                         result = Image.alpha_composite(result, process)
 
                         # save and send
-                        result.save('data/drawing/temp.jpg','JPEG', quality=100)
-                        await self.bot.send_file(ctx.message.channel, 'data/drawing/temp.jpg')
+                        result.save('data/drawing/temp.png','PNG')
+                        await self.bot.send_file(ctx.message.channel, 'data/drawing/temp.png')
 
                         # cleanup
-                        os.remove('data/drawing/temp.jpg')
+                        os.remove('data/drawing/temp.png')
                         os.remove('data/drawing/temp_bg')
 
                     else:
@@ -876,11 +876,11 @@ More to come!
 
             result = Image.alpha_composite(result, process)
 
-            result.save('data/drawing/temp.jpg','JPEG', quality=100)
+            result.save('data/drawing/temp.png','PNG')
 
-            await self.bot.send_file(ctx.message.channel, 'data/drawing/temp.jpg')
+            await self.bot.send_file(ctx.message.channel, 'data/drawing/temp.png')
 
-            os.remove('data/drawing/temp.jpg')
+            os.remove('data/drawing/temp.png')
             os.remove('data/drawing/temp_avatar')
             os.remove('data/drawing/temp_server')
 
@@ -940,13 +940,13 @@ More to come!
 
             result = build_lyrics(result, line[1])
 
-            result.save('temp.jpg','JPEG', quality=100)
+            result.save('temp.png','PNG')
 
-            await self.bot.send_file(ctx.message.channel, 'temp.jpg')
+            await self.bot.send_file(ctx.message.channel, 'temp.png')
 
             await asyncio.sleep(2)
 
-            os.remove('temp.jpg')
+            os.remove('temp.png')
 
     #TODO: add a twitch background generator
     #TODO: make per-server settings for userbars
