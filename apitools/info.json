@@ -2,7 +2,7 @@
     "AUTHOR" : "orels1",
     "SHORT": "Set of API-testing commands",
     "DESCRIPTION" : "A set of commands to help you test/get data from different APIs.\n\nAvailable commands:\n[p]api get <url> <w_headers=False> - Performs a GET request to selected URL, you can set custom headers adding \"true\" after the url\n[p]api post/put <url> - Performs POST or PUT request to selected URL, you will be asked to add headers or body to the request",
-    "DISABLED" : false
+    "DISABLED" : false,
     "NAME" : "Apitools",
     "TAGS": ["api", "tools", "utility"]
 }
