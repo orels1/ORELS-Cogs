@@ -21,6 +21,10 @@ class Drawing:
     def __init__(self, bot):
         self.bot = bot
         self.drawing_settings = fileIO("data/drawing/settings.json", "load")
+        self.session = aiohttp.ClientConnection()
+    
+    def __unload(self):
+        self.session.close()
 
         # check for settings migrations
         # clear prev settings   
@@ -155,7 +159,7 @@ More to come!
 
                 # download the image
                 try:
-                    async with aiohttp.get(bg_url) as r:
+                    async with self.session.get(bg_url) as r:
                         image = await r.content.read()
                         if not os.path.exists("data/drawing/" + ctx.message.server.id):
                             os.makedirs("data/drawing/" + ctx.message.server.id)
@@ -243,7 +247,7 @@ More to come!
 
         success = False
         try:
-            async with aiohttp.get(bg_url) as r:
+            async with self.session.get(bg_url) as r:
                 image = await r.content.read()
             with open('data/drawing/temp_bg','wb') as f:
                 f.write(image)
@@ -341,7 +345,7 @@ More to come!
 
         success = False
         try:
-            async with aiohttp.get(bg_url) as r:
+            async with self.session.get(bg_url) as r:
                 image = await r.content.read()
             with open('data/drawing/temp_bg','wb') as f:
                 f.write(image)
@@ -442,7 +446,7 @@ More to come!
 
         success = False
         try:
-            async with aiohttp.get(bg_url) as r:
+            async with self.session.get(bg_url) as r:
                 image = await r.content.read()
             with open('data/drawing/temp_bg','wb') as f:
                 f.write(image)
@@ -536,7 +540,7 @@ More to come!
             # get the image from discord
             success = False
             try:
-                async with aiohttp.get(bg_url) as r:
+                async with self.session.get(bg_url) as r:
                     image = await r.content.read()
                 with open('data/drawing/temp_bg','wb') as f:
                     f.write(image)
@@ -747,7 +751,7 @@ More to come!
         # get images
 
         try:
-            async with aiohttp.get(avatar_url) as r:
+            async with self.session.get(avatar_url) as r:
                 image = await r.content.read()
             with open('data/drawing/temp_avatar','wb') as f:
                 f.write(image)
@@ -757,7 +761,7 @@ More to come!
             print(e)
 
         try:
-            async with aiohttp.get(server_url) as r:
+            async with self.session.get(server_url) as r:
                 image = await r.content.read()
             with open('data/drawing/temp_server','wb') as f:
                 f.write(image)
@@ -822,7 +826,7 @@ More to come!
 
                 success = False
                 try:
-                    async with aiohttp.get(bg_url) as r:
+                    async with self.session.get(bg_url) as r:
                         image = await r.content.read()
                     with open('data/drawing/temp_bg','wb') as f:
                         f.write(image)
