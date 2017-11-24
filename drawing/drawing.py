@@ -21,7 +21,7 @@ class Drawing:
     def __init__(self, bot):
         self.bot = bot
         self.drawing_settings = fileIO("data/drawing/settings.json", "load")
-        self.session = aiohttp.ClientConnection()
+        self.session = aiohttp.ClientSession()
     
     def __unload(self):
         self.session.close()
