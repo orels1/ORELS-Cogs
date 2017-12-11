@@ -3,7 +3,7 @@
 
 ![s](http://c2545.eu01.webzillafiles.com/share/tumblr_nz4tntuF1A1ta7pubo1_500.gif)
 
-### [List of cogs with download instructions](https://cogs.red/cogs/repo/ORELS-Cogs/)
+### [List of cogs with download instructions](https://cogs.red/cogs/orels1/ORELS-Cogs/)
 
 A bunch of custom cogs, mostly focused on games or data scrapping.
 
