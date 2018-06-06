@@ -22,7 +22,24 @@ class Drawing:
         self.bot = bot
         self.drawing_settings = fileIO("data/drawing/settings.json", "load")
         self.session = aiohttp.ClientSession()
-    
+        self.version = "1.4.2"
+        self.update_type = "fix"
+        self.patchnote = """
+**Per-server settings are here!**
+
+Now all the settings are controlled on a per-server basis, no need to worry about having the same userbar background for all the servers.
+
+**IMPORTANT** you will need to set background and bot_sign once again with `[p]drawing setsign` and `[p]drawing setbg` commands.
+
+Due to the latest updates to `downloader` settings won't be wiped anymore after the cog update. **YOU WILL NEED TO UPDATE THE BOT** to get this fix.
+
+**Now all the users wigh `manage server` permission can change bot settings for their server**
+
+Hope you like this little new addition!
+
+More to come!
+"""
+ 
     def __unload(self):
         self.session.close()
 
@@ -71,24 +88,6 @@ class Drawing:
                 }
             fileIO("data/drawing/settings.json", "save", self.drawing_settings)
                 
-        self.version = "1.4.2"
-        self.update_type = "fix"
-        self.patchnote = """
-**Per-server settings are here!**
-
-Now all the settings are controlled on a per-server basis, no need to worry about having the same userbar background for all the servers.
-
-**IMPORTANT** you will need to set background and bot_sign once again with `[p]drawing setsign` and `[p]drawing setbg` commands.
-
-Due to the latest updates to `downloader` settings won't be wiped anymore after the cog update. **YOU WILL NEED TO UPDATE THE BOT** to get this fix.
-
-**Now all the users wigh `manage server` permission can change bot settings for their server**
-
-Hope you like this little new addition!
-
-More to come!
-"""
-
     @commands.group(pass_context = True)
     async def drawing(self, ctx):
         """Returns info about the cog"""
