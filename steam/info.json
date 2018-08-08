@@ -1,6 +1,6 @@
 {
     "AUTHOR" : "orels1",
-    "DESCRIPTION" : "Tool to get the link to a game on steam, or the amount of owners from SteamSpy",
+    "DESCRIPTION" : "Tool to get the links to a game on steam, or the amount of owners from SteamSpy",
     "SHORT": "Gathers useful data from Steam & SteamSpy",
     "INSTALL_MSG": "This cog was aimed to provide an easy access to Steam games list, as well as getting owners numbers from SteamSpy on those occasions when you're curious, bored, or in dire need of some numbers to back you up in an argument. \n\n As all the numbers are provided by SteamSpy, they SHOULD NOT BE TREATED LIKE SALES NUMBERS\n More on sales vs owners here:http://steamspy.com/about\n\n Have fun! (orels1)",
     "DISABLED" : false,
