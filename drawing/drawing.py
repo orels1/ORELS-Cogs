@@ -360,6 +360,7 @@ More to come!
             # define vars
             title = ""
             subtitle = ""
+            mention = ctx.message.clean_content
 
             # get vars
             await self.bot.say("Please type title")
@@ -369,6 +370,11 @@ More to come!
             await self.bot.say("Please type subtitle")
             answer = await self.bot.wait_for_message(timeout=30, author=ctx.message.author)
             subtitle = answer.content.lower().strip()
+
+            if "@" in mention:
+                text = mention[mention.find("@")+1:]
+            else:
+                text = ctx.message.author.name
 
             # check text length
             if len(title) < 30 and len(subtitle) < 40:
@@ -402,7 +408,7 @@ More to come!
                 d = ImageDraw.Draw(process)
 
                 # calculate text sizes and positions
-                author_pos = int(math.floor(fnt_sm.getsize(ctx.message.author.name)[0] / 2))
+                author_pos = int(math.floor(fnt_sm.getsize(text)[0] / 2))
                 title_pos = int(math.floor(fnt_b.getsize(title)[0] / 2))
                 subtitle_pos = int(math.floor(fnt_sm.getsize(subtitle)[0] / 2))
 
@@ -413,7 +419,7 @@ More to come!
                 d.rectangle([(20,20),(new_width - 20, new_height - 20)], fill=(0,0,0,180), outline=(200,200,200,128))
 
                 # text
-                d.text((half_width - author_pos, half_height - 60), ctx.message.author.name, font=fnt_sm, fill=(255,255,255,255))
+                d.text((half_width - author_pos, half_height - 60), text, font=fnt_sm, fill=(255,255,255,255))
                 d.text((half_width - title_pos, half_height - 20), title, font=fnt_b, fill=(255,255,255,255))
                 d.text((half_width - subtitle_pos, half_height + 40), subtitle, font=fnt_sm, fill=(255,255,255,255))
 
